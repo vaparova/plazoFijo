@@ -1,10 +1,35 @@
 
-<p>Capital: {{capital}}</p>
+<!-- <p>Capital: {{capital}}</p>
 <button (click)='incrCap(1000)'>+</button>
 <p>Días: {{dias}}</p>
 <button (click)='incrDias(1)'>+</button>
 <p>{{resultado}}</p>
-<p>{{simulacion | json}}</p>
+<p>{{simulacion | json}}</p> -->
+
+<div class="card">
+  <div class="card-header">
+    Predeterminado
+  </div>
+  <div class="card-body">
+    <div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">-</button>
+        <button type="button" class="btn btn-primary" disabled>Capital</button>
+        <button type="button" class="btn btn-primary" (click)='incrCap(1000)'>+</button>
+      </div>
+      <p class="card-text">{{capital}}</p>
+    </div>
+    <div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">-</button>
+        <button type="button" class="btn btn-primary" disabled>Días</button>
+        <button type="button" class="btn btn-primary" (click)='incrDias(1)'>+</button>
+      </div>
+      <p class="card-text">{{dias }}</p>
+    </div>
+   
+  </div>
+</div>
 
 <div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
