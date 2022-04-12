@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Simulacion } from '../models/simulacion.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SimuladoresService {
 
+  simulaciones: Simulacion[] = [];
+
   constructor() { }
 
-  prueba(): string{
-    return 'El servicio funciona!';
+  agregarSimulacion(simulacion: Simulacion): void{
+    this.simulaciones.push(simulacion);
   }
+
+  getSimulaciones(): Simulacion[]{
+    return this.simulaciones;
+  }
+
 }

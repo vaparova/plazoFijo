@@ -4,7 +4,7 @@
 <p>Días: {{dias}}</p>
 <button (click)='incrDias(1)'>+</button>
 <p>{{resultado}}</p>
-<p>{{simulacion | json}}</p> -->
+< -->
 
 <div class="card">
   <div class="card-header">
@@ -27,14 +27,14 @@
       </div>
       <p class="card-text">{{dias }}</p>
     </div>
-   
+    <!-- <p>{{simulaciones | json}}</p> -->
   </div>
 </div>
 
-<div class="card" style="width: 18rem;">
+<div  class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
+      <li *ngFor="let simulacion of simulaciones" class="list-group-item">{{simulacion | json}}</li>
     </ul>
   </div>
+
+  

@@ -10,13 +10,11 @@ import { SimuladoresService } from 'src/app/providers/simuladores.service';
 export class PlazoFijoComponent implements OnInit {
   dias = 30;
   capital = 1000;
-  resultado: string;
   simulacion: Simulacion;
   tasa = 40;
+  simulaciones: Simulacion[] = [];
 
   constructor(public simuladores: SimuladoresService) { 
-
-    this.resultado = simuladores.prueba();
     this.simulacion = new Simulacion(1000, 30, 41);
     this.simulacion.calcularInteres();
   }
@@ -27,6 +25,8 @@ export class PlazoFijoComponent implements OnInit {
   calcularInteres(){
     this.simulacion = new Simulacion(this.capital, this.dias, this.tasa);
     this.simulacion.calcularInteres();
+    this.agregaSimulacion(this.simulacion);
+    this.verSimulaciones();
   }
 
   incrCap(incr: number){
@@ -37,5 +37,13 @@ export class PlazoFijoComponent implements OnInit {
   incrDias(incr: number){
     this.dias += incr;
     this.calcularInteres();
+  }
+
+  agregaSimulacion(simulacion: Simulacion){
+    this.simuladores.agregarSimulacion(simulacion);
+  }
+
+  verSimulaciones(){
+    this.simulaciones = this.simuladores.getSimulaciones();
   }
 }
