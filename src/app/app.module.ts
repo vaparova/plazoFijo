@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +15,9 @@ import { SimuladoresService } from './providers/simuladores.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule 
+    ComponentsModule,
+    ReactiveFormsModule,
+    FormsModule 
   ],
   providers: [SimuladoresService],
   bootstrap: [AppComponent]
