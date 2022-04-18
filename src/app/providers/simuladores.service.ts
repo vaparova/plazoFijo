@@ -6,9 +6,11 @@ import { Simulacion } from '../models/simulacion.model';
 })
 export class SimuladoresService {
 
-  simulaciones: Simulacion[] = [];
+  simulaciones: Simulacion[];
 
-  constructor() { }
+  constructor() { 
+    this.simulaciones = [];
+  }
 
   agregarSimulacion(simulacion: Simulacion): void{
     this.simulaciones.push(simulacion);

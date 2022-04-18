@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Simulacion } from 'src/app/models/simulacion.model';
 import { SimuladoresService } from 'src/app/providers/simuladores.service';
 
+
 @Component({
   selector: 'app-plazo-fijo',
   templateUrl: './plazo-fijo.component.html',
@@ -21,6 +22,7 @@ export class PlazoFijoComponent implements OnInit {
     this.simulacion = new Simulacion(1000, 30, 41);
     this.simulacion.calcularInteres();
     this.formulario = this.crearFormulario();
+    this.setForm();
   }
 
   ngOnInit(): void {
@@ -31,6 +33,12 @@ export class PlazoFijoComponent implements OnInit {
       dias: ['',[Validators.required, Validators.min(30)]],
       capital: ['', [Validators.required, Validators.min(1000)]]
     });
+  }
+
+  setForm(){
+    this.formulario.controls['dias'].setValue(this.dias);
+    this.formulario.controls['capital'].setValue(this.capital);
+    console.log(this.formulario);
   }
 
   habilitarForm(){
@@ -47,11 +55,15 @@ export class PlazoFijoComponent implements OnInit {
   incrCap(incr: number){
     this.capital += incr;
     this.calcularInteres();
+    this.marcarFormulario();
+    this.setForm();
   }
 
   incrDias(incr: number){
     this.dias += incr;
     this.calcularInteres();
+    this.marcarFormulario();
+    this.setForm();
   }
 
   agregaSimulacion(simulacion: Simulacion){
@@ -61,4 +73,10 @@ export class PlazoFijoComponent implements OnInit {
   verSimulaciones(){
     this.simulaciones = this.simuladores.getSimulaciones();
   }
+
+  marcarFormulario(){
+    console.log('marcar formulario'); 
+    this.formulario.controls['capital'].markAsTouched();
+    this.formulario.controls['dias'].markAsTouched();
+  } 
 }
