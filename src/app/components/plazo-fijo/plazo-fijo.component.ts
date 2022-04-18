@@ -4,6 +4,7 @@ import { Simulacion } from 'src/app/models/simulacion.model';
 import { SimuladoresService } from 'src/app/providers/simuladores.service';
 
 
+
 @Component({
   selector: 'app-plazo-fijo',
   templateUrl: './plazo-fijo.component.html',
@@ -39,10 +40,13 @@ export class PlazoFijoComponent implements OnInit {
     this.formulario.controls['dias'].setValue(this.dias);
     this.formulario.controls['capital'].setValue(this.capital);
     console.log(this.formulario);
+    this.verificarForm();
   }
 
   habilitarForm(){
-    !this.habilitar;
+    // event.preventDefault();
+    this.habilitar = !this.habilitar;
+    console.log(this.habilitar);
   }
 
   calcularInteres(){
@@ -79,4 +83,10 @@ export class PlazoFijoComponent implements OnInit {
     this.formulario.controls['capital'].markAsTouched();
     this.formulario.controls['dias'].markAsTouched();
   } 
+
+  verificarForm(){
+    if (this.formulario.invalid){
+      alert('Formulario Invalido!');
+    }
+  }
 }

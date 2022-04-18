@@ -4,6 +4,7 @@
   </div>
   <div class="card-body">
     <form (formGroup)="formulario">
+      <a (click)="habilitarForm()">Editar</a>
       <div>
         <div class="input-group">
           <input (formControlName)="capital" type="text" class="form-control" placeholder="Capital" [value]="capital" [disabled]="habilitar">
