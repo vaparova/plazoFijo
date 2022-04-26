@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Simulacion } from '../models/simulacion.model';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +10,19 @@ import { Simulacion } from '../models/simulacion.model';
 export class SimuladoresService {
 
   simulaciones: Simulacion[];
+  
 
-  constructor() { 
+  constructor( private afs: AngularFireDatabase ) { 
     this.simulaciones = [];
+  }
+
+  setBd(){
+    this.afs.object('simulaciones/').set(this.simulaciones);    
   }
 
   agregarSimulacion(simulacion: Simulacion): void{
     this.simulaciones.push(simulacion);
+    this.setBd();
   }
 
   getSimulaciones(): Simulacion[]{
