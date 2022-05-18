@@ -15,4 +15,21 @@ export class Simulacion{
         this.interes = (this.capital * this.dias * this.tasa)/36500;
         return this.interes;
     }
+
+    ejemploPromesa(estadoConexionDB: boolean): void{
+        const miPromesa = new Promise( (resolve, reject) => {
+            if(estadoConexionDB){
+                resolve('Conexión DB exitosa!.. ;) ');
+            }else{
+                reject('Conexion DB fallida!.. :( ');
+            }
+    
+        }); 
+    
+        miPromesa.then( (mensaje) => {
+            console.log(mensaje); 
+        }).catch(mensaje => {
+            console.log(mensaje);
+        });
+    }
 }
