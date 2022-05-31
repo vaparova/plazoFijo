@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Simulacion } from 'src/app/models/simulacion.model';
 import { SimuladoresService } from 'src/app/providers/simuladores.service';
@@ -18,11 +18,15 @@ export class PlazoFijoComponent implements OnInit {
   simulaciones: Simulacion[] = [];
   formulario: FormGroup;
   habilitar = true;
+  @Input() mensaje = '';
 
   constructor(public simuladores: SimuladoresService, private fb: FormBuilder) { 
     this.simulacion = new Simulacion(1000, 30, 41);
     this.simulacion.calcularInteres();
     this.formulario = this.crearFormulario();
+    this.simuladores.getBd().then( () =>{
+      this.simulaciones = this.simuladores.getSimulaciones();
+    });
     this.setForm();
   }
 

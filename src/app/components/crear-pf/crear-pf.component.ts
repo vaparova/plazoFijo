@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearPfComponent implements OnInit {
 
+  // @Input() mensaje = '';
+
   constructor() { }
 
   ngOnInit(): void {
