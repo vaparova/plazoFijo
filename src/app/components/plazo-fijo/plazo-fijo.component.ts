@@ -5,6 +5,7 @@ import { SimuladoresService } from 'src/app/providers/simuladores.service';
 
 
 
+
 @Component({
   selector: 'app-plazo-fijo',
   templateUrl: './plazo-fijo.component.html',
@@ -18,6 +19,8 @@ export class PlazoFijoComponent implements OnInit {
   simulaciones: Simulacion[] = [];
   formulario: FormGroup;
   habilitar = true;
+  mjeError = '';
+  errordb = false;
   @Input() mensaje = '';
 
   constructor(public simuladores: SimuladoresService, private fb: FormBuilder) { 
@@ -26,6 +29,9 @@ export class PlazoFijoComponent implements OnInit {
     this.formulario = this.crearFormulario();
     this.simuladores.getBd().then( () =>{
       this.simulaciones = this.simuladores.getSimulaciones();
+    }).catch( (err: Error) => {
+      this.errordb = true;
+      this.mjeError = 'error db!';
     });
     this.setForm();
   }
