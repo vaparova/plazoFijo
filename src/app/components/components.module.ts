@@ -4,6 +4,7 @@ import { PlazoFijoComponent } from './plazo-fijo/plazo-fijo.component';
 import { SaldoComponent } from './saldo/saldo.component';
 import { MenuComponent } from './menu/menu.component';
 import { CrearPfComponent } from './crear-pf/crear-pf.component';
+import { ConexionComponent } from './conexion/conexion.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { CrearPfComponent } from './crear-pf/crear-pf.component';
         SaldoComponent,
         MenuComponent,
         CrearPfComponent,
+        ConexionComponent,
 
     ],
     imports: [
@@ -21,7 +23,8 @@ import { CrearPfComponent } from './crear-pf/crear-pf.component';
         PlazoFijoComponent,
         SaldoComponent,
         MenuComponent,
-        CrearPfComponent
+        CrearPfComponent,
+        ConexionComponent
     ]
 })
 export class ComponentsModule{}

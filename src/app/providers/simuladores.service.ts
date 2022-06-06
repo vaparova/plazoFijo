@@ -8,7 +8,7 @@ import { Simulacion } from '../models/simulacion.model';
 @Injectable({
   providedIn: 'root'
 })
-export class SimuladoresService implements OnInit {
+export class SimuladoresService {
 
   simulaciones: Simulacion[];
   internetStatus = '';
@@ -17,12 +17,10 @@ export class SimuladoresService implements OnInit {
 
   constructor( private afs: AngularFireDatabase ) { 
     this.simulaciones = [];
-    this.conexion();
   }
 
   ngOnInit(): void {
     console.log('servicio onInit()');
-    this.conexion();
   }
 
   setBd(){
@@ -50,20 +48,6 @@ export class SimuladoresService implements OnInit {
 
   getSimulaciones(): Simulacion[]{
     return this.simulaciones;
-  }
-
-  conexion(){
-    console.log('estado conexion');
-    fromEvent(window, 'offline').pipe(
-      debounceTime(100)).subscribe((event: Event) =>{
-        console.log(event);
-        this.internetStatus = event.type;
-      });
-    fromEvent(window, 'online').pipe(
-      debounceTime(100)).subscribe((event: Event) =>{
-        console.log(event);
-        this.internetStatus = event.type;
-      });
   }
 
   mje(mje: any): void | PromiseLike<void> {
