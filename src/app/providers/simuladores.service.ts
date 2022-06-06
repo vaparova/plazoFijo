@@ -32,11 +32,6 @@ export class SimuladoresService implements OnInit {
   getBd(){
     console.log('getBD');
     return new Promise( (resolve, reject) => {
-    //   this.datosBd = this.afs.object('simulaciones/').snapshotChanges(); 
-    //   this.datosBd.subscribe( (action: { payload: { val: () => Simulacion[]; }; }) => {
-    //     resolve(this.simulaciones = action.payload.val());
-    //   });
-    // });
     this.datosBd = this.afs.object('simulaciones/').snapshotChanges(); 
     this.datosBd.pipe(
       catchError( async (err) => reject(this.mje))
