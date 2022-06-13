@@ -36,8 +36,6 @@ export class SimuladoresService {
     ).subscribe( (action: { payload: { val: () => Simulacion[]; }; }) => {
       resolve(this.simulaciones = action.payload.val());
     })
-      
-    
   });
   }
 

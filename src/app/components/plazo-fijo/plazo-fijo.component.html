@@ -30,7 +30,12 @@
        {{mjeError}}
       </div>
       <ul class="list-group list-group-flush">
-        <li *ngFor="let simulacion of simulaciones" class="list-group-item">{{simulacion | json}}</li>
+        <li *ngFor="let simulacion of simulaciones; let i=index" class="list-group-item">{{simulacion | json}}
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button" (click)="crearPF(i)">Crear PF</button>
+          </div>
+
+        </li>
       </ul>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Simulacion } from 'src/app/models/simulacion.model';
 import { SimuladoresService } from 'src/app/providers/simuladores.service';
 
@@ -23,7 +24,7 @@ export class PlazoFijoComponent implements OnInit {
   errordb = false;
   @Input() mensaje = '';
 
-  constructor(public simuladores: SimuladoresService, private fb: FormBuilder) { 
+  constructor(public simuladores: SimuladoresService, private fb: FormBuilder, private route: Router) { 
     this.simulacion = new Simulacion(1000, 30, 41);
     this.simulacion.calcularInteres();
     this.formulario = this.crearFormulario();
@@ -98,5 +99,9 @@ export class PlazoFijoComponent implements OnInit {
     if (this.formulario.invalid){
       alert('Formulario Invalido!');
     }
+  }
+
+  crearPF(index: number){
+    this.route.navigateByUrl(`/crear/${index}`);
   }
 }

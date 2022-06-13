@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-crear-pf',
@@ -8,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class CrearPfComponent implements OnInit {
 
   // @Input() mensaje = '';
+  index = 23;
 
-  constructor() { }
+  constructor( private ruta: ActivatedRoute) { 
+    this.index = this.ruta.snapshot.params['id'];
+    console.log(this.index);
+
+  }
 
   ngOnInit(): void {
   }

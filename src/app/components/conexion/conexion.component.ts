@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { debounceTime, fromEvent } from 'rxjs';
 
+
+ 
+
 @Component({
   selector: 'app-conexion',
   templateUrl: './conexion.component.html',
@@ -8,8 +11,12 @@ import { debounceTime, fromEvent } from 'rxjs';
 })
 export class ConexionComponent implements OnInit {
   internetStatus = '';
+  
+  
+  
 
-  constructor() { }
+  constructor() {    
+    }
 
   ngOnInit(): void {
     this.conexion();
@@ -27,6 +34,6 @@ export class ConexionComponent implements OnInit {
         console.log(event);
         this.internetStatus = event.type;
       });
-    }
+  }
 
 }
