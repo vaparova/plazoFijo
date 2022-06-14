@@ -1,4 +1,5 @@
-<app-menu></app-menu>
+<app-menu mensaje="Mi Billetera Virtual" (messageEvent)="receiveMessage($event)"></app-menu>
+<p>Ruta Seleccionada: {{this.index}}</p>
 <app-conexion></app-conexion>
 <app-saldo></app-saldo>
-<router-outlet mensaje="title"></router-outlet>
+<router-outlet></router-outlet>

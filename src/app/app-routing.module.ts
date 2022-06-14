@@ -5,6 +5,7 @@ import { PlazoFijoComponent } from './components/plazo-fijo/plazo-fijo.component
 
 const routes: Routes = [
   {path: 'simular', component: PlazoFijoComponent},
+  {path: 'crear', component: CrearPfComponent},
   {path: 'crear/:id', component: CrearPfComponent},
   {path: '', component: PlazoFijoComponent}
 ];

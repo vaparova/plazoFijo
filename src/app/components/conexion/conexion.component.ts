@@ -11,9 +11,6 @@ import { debounceTime, fromEvent } from 'rxjs';
 })
 export class ConexionComponent implements OnInit {
   internetStatus = '';
-  
-  
-  
 
   constructor() {    
     }

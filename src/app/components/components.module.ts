@@ -7,6 +7,7 @@ import { CrearPfComponent } from './crear-pf/crear-pf.component';
 import { ConexionComponent } from './conexion/conexion.component';
 
 
+
 @NgModule({
     declarations: [
         PlazoFijoComponent,
@@ -24,7 +25,7 @@ import { ConexionComponent } from './conexion/conexion.component';
         SaldoComponent,
         MenuComponent,
         CrearPfComponent,
-        ConexionComponent
+        ConexionComponent,
     ]
 })
 export class ComponentsModule{}

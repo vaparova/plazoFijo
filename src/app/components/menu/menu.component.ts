@@ -1,5 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-menu',
@@ -9,16 +10,23 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   @ViewChild('closeAddExpenseModal') closeAddExpenseModal: any;
+  @Input() mensaje = '';
+  @Output() messageEvent = new EventEmitter<string>();
+  ruta = '';
 
-  constructor(private route: Router) { }
+  constructor(private route: Router) { 
+  
+  }
 
   ngOnInit(): void {
   }
 
   navegar(index: string){
+    this.ruta = index;
     console.log('click');
     this.route.navigateByUrl(`/${index}`);
     this.closeAddExpenseModal.nativeElement.click();
+    this.messageEvent.emit(index);
   }
 
 }
