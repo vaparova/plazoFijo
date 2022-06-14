@@ -11,6 +11,7 @@ import { Simulacion } from '../models/simulacion.model';
 export class SimuladoresService {
 
   simulaciones: Simulacion[];
+  saldo = 10000;
   internetStatus = '';
   datosBd: any;
   
@@ -21,6 +22,14 @@ export class SimuladoresService {
 
   ngOnInit(): void {
     console.log('servicio onInit()');
+  }
+
+  getSaldo(){
+    return this.saldo;
+  }
+
+  setSaldo(nuevoSaldo: number){
+    this.saldo = nuevoSaldo;
   }
 
   setBd(){
