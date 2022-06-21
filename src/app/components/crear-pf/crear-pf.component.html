@@ -3,14 +3,18 @@
 <form (formGroup)="formulario">
   <div>
     <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">Capital</span>
       <input formControlName="dias" [value]="simulaciones[this.index].capital" type="text" class="form-control" placeholder="Capital" >
       </div>
   </div>
   <div>
     <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">Días</span>
       <input formControlName="capital" [value]="simulaciones[this.index].dias"  type="text" class="form-control" placeholder="Dias">
     </div>
   </div>
 </form>
+<br>
+<button type="button" class="btn btn-primary" (click)="verificarForm()">Crear Plazo Fijo</button>
 
 

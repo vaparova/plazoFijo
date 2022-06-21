@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { catchError, debounce, debounceTime, fromEvent, Observable } from 'rxjs';
+import { Saldo } from '../models/saldo';
 import { Simulacion } from '../models/simulacion.model';
 
 
@@ -11,7 +12,7 @@ import { Simulacion } from '../models/simulacion.model';
 export class SimuladoresService {
 
   simulaciones: Simulacion[];
-  saldo = 10000;
+  saldo = new Saldo();
   internetStatus = '';
   datosBd: any;
   
@@ -29,7 +30,7 @@ export class SimuladoresService {
   }
 
   setSaldo(nuevoSaldo: number){
-    this.saldo = nuevoSaldo;
+    this.saldo.actualizarSaldo(nuevoSaldo);
   }
 
   setBd(){

@@ -12,6 +12,8 @@ export class PlazoFijo{
     }
 
     calcularVto(dias: number, constitucion: Date): Date{
-        return new Date(); // modifcar para calcular vencimiento
+        const sumar = new Date(constitucion);
+        sumar.setDate(sumar.getDate() + dias);
+        return sumar;
     }
 }

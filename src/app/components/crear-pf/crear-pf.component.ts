@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { PlazoFijo } from 'src/app/models/plazoFijo';
 import { Simulacion } from 'src/app/models/simulacion.model';
 import { SimuladoresService } from 'src/app/providers/simuladores.service';
 
@@ -49,8 +50,12 @@ export class CrearPfComponent implements OnInit {
   }
 
   verificarForm(){
-    if (this.formulario.invalid){
-      alert('Formulario Invalido!');
-    }
+    this.formulario.invalid? alert('Formulario Invalido!') : this.crearPlazoFijo();
+    
+  }
+
+  crearPlazoFijo(){
+    const plazoFijo = new PlazoFijo(this.simulaciones[this.index], new Date());
+    console.log(plazoFijo);
   }
 }
